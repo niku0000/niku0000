@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude × GitHub 連線測試</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 56px 64px;
+      max-width: 640px;
+      width: 90%;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(88,200,120,0.15);
+      border: 1px solid rgba(88,200,120,0.4);
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 13px;
+      color: #58c878;
+      margin-bottom: 32px;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      background: #58c878;
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      color: rgba(255,255,255,0.55);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .checks {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      padding: 14px 18px;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .check-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .check-text strong { display: block; font-size: 0.95rem; }
+    .check-text span { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+    .footer {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer a { color: rgba(160,140,255,0.7); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge"><span class="dot"></span> 連線成功</div>
+    <h1>Claude × GitHub</h1>
+    <p class="subtitle">
+      這個頁面由 Claude 自動建立並透過 GitHub Pages 發布，<br>
+      用以驗證 Claude 與 GitHub 的整合連線是否正常運作。
+    </p>
+    <div class="checks">
+      <div class="check-item">
+        <span class="check-icon">✅</span>
+        <div class="check-text">
+          <strong>GitHub MCP 工具連線</strong>
+          <span>Claude 可透過 MCP Server 讀寫儲存庫內容</span>
+        </div>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">✅</span>
+        <div class="check-text">
+          <strong>Contents 讀寫權限</strong>
+          <span>檔案建立、更新、刪除均已授權</span>
+        </div>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">✅</span>
+        <div class="check-text">
+          <strong>GitHub Pages 發布</strong>
+          <span>靜態頁面已部署至 github.io</span>
+        </div>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">⚠️</span>
+        <div class="check-text">
+          <strong>Issues / Pull Requests 權限（選用）</strong>
+          <span>如需 Claude 回應 Issue 或建立 PR，需額外開啟</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      自動產生於 2026-06-10 &nbsp;·&nbsp;
+      <a href="https://github.com/niku0000/niku0000" target="_blank">github.com/niku0000</a>
+    </div>
+  </div>
+</body>
+</html>
