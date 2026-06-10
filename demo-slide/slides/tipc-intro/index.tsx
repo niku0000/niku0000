@@ -3,19 +3,19 @@ import { useSlidePageNumber } from '@open-slide/core';
 
 export const design: DesignSystem = {
   palette: {
-    bg: '#050d1a',
+    bg: '#000000',
     text: '#e8f0fa',
     accent: '#1a8cff',
   },
   fonts: {
-    display: '"Inter", "SF Pro Display", system-ui, -apple-system, sans-serif',
-    body: '"Inter", system-ui, -apple-system, sans-serif',
+    display: 'Georgia, "Times New Roman", serif',
+    body: '"Helvetica Neue", Helvetica, Arial, sans-serif',
   },
   typeScale: {
-    hero: 148,
-    body: 36,
+    hero: 98,
+    body: 42,
   },
-  radius: 12,
+  radius: 22,
 };
 
 const palette = {
@@ -326,14 +326,7 @@ const Cover: Page = () => (
         </h1>
         <p
           className="tipc-fadeUp"
-          style={{
-            animationDelay: '0.35s',
-            marginTop: 36,
-            fontSize: 'var(--osd-size-body)',
-            color: palette.textSoft,
-            lineHeight: 1.5,
-            maxWidth: 1100,
-          }}
+          style={{ animationDelay: '0.35s', marginTop: 36, fontSize: '46px', color: palette.textSoft, lineHeight: 1.5, maxWidth: 1100, fontStyle: 'italic' }}
         >
           整合台灣六大國際商港，提供港埠經營、航運服務與物流管理，
           連結台灣與全球海運網絡。
@@ -603,7 +596,7 @@ const TestPage: Page = () => (
           lineHeight: 1.5,
         }}
       >
-        如果你看到這頁，代表 Vercel 自動部署成功 ✅
+        如果你看到這頁，代表 Vercel 自動部署成功 ✅<br />修改測試20:32
       </p>
     </div>
     <PageFooter />
@@ -615,4 +608,4 @@ export const meta: SlideMeta = {
   createdAt: '2026-06-10T06:37:10.579Z',
 };
 
-export default [Cover, Ports, TestPage] satisfies Page[];
+export default [TestPage, Cover, Ports] satisfies Page[];
