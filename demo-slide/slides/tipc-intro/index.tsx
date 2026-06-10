@@ -537,9 +537,82 @@ export const transition: SlideTransition = {
   },
 };
 
+// ─── Page 3: 修改測試頁面 ─────────────────────────────────────────────────────
+const TestPage: Page = () => (
+  <div style={fill}>
+    <Styles />
+    <GridBg />
+    <div
+      style={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 800,
+        height: 400,
+        background: `radial-gradient(ellipse, ${palette.teal}1a 0%, transparent 65%)`,
+        pointerEvents: 'none',
+      }}
+    />
+    <div
+      style={{
+        position: 'absolute',
+        inset: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 32,
+      }}
+    >
+      <div
+        className="tipc-fadeUp"
+        style={{
+          fontFamily: font.mono,
+          fontSize: 20,
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
+          color: palette.muted,
+        }}
+      >
+        Vercel 自動部署測試
+      </div>
+      <h2
+        className="tipc-fadeUp"
+        style={{
+          animationDelay: '0.15s',
+          fontFamily: 'var(--osd-font-display)',
+          fontSize: 120,
+          fontWeight: 900,
+          letterSpacing: '-0.04em',
+          lineHeight: 1.0,
+          margin: 0,
+          color: palette.teal,
+          textAlign: 'center',
+        }}
+      >
+        修改測試頁面
+      </h2>
+      <p
+        className="tipc-fadeUp"
+        style={{
+          animationDelay: '0.3s',
+          fontSize: 36,
+          color: palette.textSoft,
+          textAlign: 'center',
+          lineHeight: 1.5,
+        }}
+      >
+        如果你看到這頁，代表 Vercel 自動部署成功 ✅
+      </p>
+    </div>
+    <PageFooter />
+  </div>
+);
+
 export const meta: SlideMeta = {
   title: '台灣港務公司 TIPC',
   createdAt: '2026-06-10T06:37:10.579Z',
 };
 
-export default [Cover, Ports] satisfies Page[];
+export default [Cover, Ports, TestPage] satisfies Page[];
