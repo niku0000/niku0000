@@ -40,6 +40,32 @@ def parse_line_export(txt_path, csv_path):
         else:
             i += 1
 
+    # Category rules: (大類, keywords)
+    category_rules = [
+        ('旅遊-日本', ['日本', '名古屋', '大阪', '東京', '京都', '福岡', '沖繩', '關西', '四國', '貴船', '換乘', 'jins', '住宿', '獨旅', '出發前']),
+        ('旅遊-台灣', ['台南', '台東', '高雄', '嘉義', '台灣']),
+        ('旅遊-韓國', ['韓國', '首爾', '釜山', '聖水洞']),
+        ('AI工具',   ['ai', 'claude', 'chatgpt', 'gpt', 'firecrawl', '爬蟲', '生圖', '提示詞', 'skill', '讀網頁', '讀影片', 'open skide', 'open slide', 'power bi']),
+        ('日文學習', ['日文', '日語', '日檢', '背單字', '換乘', 'nhk', '助詞', '文法', '閱讀']),
+        ('筆記工具', ['notion', 'obsidian', 'obisidian', 'ppt', '排版', '國圖']),
+        ('美妝保養', ['睫毛', '唇膏', '雙眼皮', '美妝', '貼紙', '轉印']),
+        ('程式開發', ['github', 'skill寫法', 'claude skill', 'claude排版', '程式', 'vercel', 'open-slide']),
+        ('健身運動', ['hitt', 'hiit', '訓練', '運動']),
+        ('娛樂創作', ['同人', '論壇', '反應器', '虎爸爸', 'marvel', 'ptt']),
+        ('日文學習', ['sigure.tw', 'learn-japanese']),  # URL-based fallback
+        ('其他',     []),
+    ]
+
+    def categorize(tag, url):
+        text_lower = (tag + ' ' + url).lower()
+        for cat, keywords in category_rules:
+            if cat == '其他':
+                return '其他'
+            for kw in keywords:
+                if kw.lower() in text_lower:
+                    return cat
+        return '其他'
+
     # Extract URL entries
     for date, time_, sender, text in messages:
         urls = url_pattern.findall(text)
@@ -54,12 +80,13 @@ def parse_line_export(txt_path, csv_path):
                 '日期': date,
                 '時間': time_,
                 '傳送者': sender,
+                '大類': categorize(tag, url),
                 '標籤': tag,
                 '網址': url,
             })
 
     with open(csv_path, 'w', newline='', encoding='utf-8-sig') as f:
-        writer = csv.DictWriter(f, fieldnames=['日期', '時間', '傳送者', '標籤', '網址'])
+        writer = csv.DictWriter(f, fieldnames=['日期', '時間', '傳送者', '大類', '標籤', '網址'])
         writer.writeheader()
         writer.writerows(records)
 
