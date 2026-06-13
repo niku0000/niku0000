@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <!-- Title -->
+    <mxCell id="title" value="open-slide 簡報修改教學流程圖" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="370" y="20" width="500" height="40" as="geometry"/>
+    </mxCell>
+
+    <!-- Start -->
+    <mxCell id="start" value="想修改簡報" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="520" y="80" width="160" height="55" as="geometry"/>
+    </mxCell>
+
+    <!-- Decision: 選擇方式 -->
+    <mxCell id="chooseMethod" value="選擇修改方式？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="470" y="175" width="260" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_start" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="start" target="chooseMethod" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== 方式一 LEFT BRANCH ===== -->
+    <mxCell id="m1_label" value="方式一：跟 Claude 說（最簡單）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="60" y="300" width="270" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_m1" value="方式一" style="edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="chooseMethod" target="m1_label" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="m1_desc" value="用自然語言描述想要的修改&#xa;例如：&#xa;「把第一頁標題改成紅色」&#xa;「在第二頁加聯絡電話」&#xa;「把整份簡報背景換成白色」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="60" y="390" width="270" height="90" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_m1_desc" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m1_label" target="m1_desc" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="m1_claude" value="Claude 找到對應程式碼並修改&#xa;自動 push 到 GitHub" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="60" y="520" width="270" height="55" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_m1_claude" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m1_desc" target="m1_claude" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== 方式二 RIGHT BRANCH ===== -->
+    <mxCell id="m2_label" value="方式二：視覺編輯器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="870" y="300" width="270" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_m2" value="方式二" style="edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="chooseMethod" target="m2_label" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- First time decision -->
+    <mxCell id="firstTime" value="第一次使用？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="875" y="395" width="220" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_ft" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m2_label" target="firstTime" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- Setup group (first time = YES, far right) -->
+    <mxCell id="setup_header" value="【一次性安裝環境】" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1210" y="330" width="210" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_setup_yes" value="是" style="edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="firstTime" target="setup_header" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s1" value="1. 安裝 Node.js（LTS 版本）&#xa;下載 nodejs.org，輸入 node -v 確認" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1210" y="390" width="210" height="55" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_s1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="setup_header" target="s1" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s2" value="2. 安裝 pnpm&#xa;用 cmd 輸入：npm install -g pnpm&#xa;⚠️ 用 cmd，不要用 PowerShell" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1210" y="460" width="210" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_s2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s1" target="s2" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s3" value="3. 安裝 Git&#xa;Mac: git --version 確認已內建&#xa;Windows: 下載 git-scm.com" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1210" y="540" width="210" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_s3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s2" target="s3" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s4" value="4. 設定 Git 身分（一次）&#xa;git config --global user.email &quot;你的email&quot;&#xa;git config --global user.name &quot;你的名字&quot;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1210" y="620" width="210" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_s4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s3" target="s4" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s5" value="5. 下載專案到本機&#xa;git clone https://github.com/niku0000/niku0000.git" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1210" y="705" width="210" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_s5" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s4" target="s5" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s6" value="6. 安裝專案依賴&#xa;cd niku0000/demo-slide&#xa;pnpm approve-builds&#xa;pnpm install" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1210" y="780" width="210" height="75" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_s6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s5" target="s6" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- After setup, goes back to main flow -->
+    <mxCell id="m2_step1" value="第二步：啟動編輯器&#xa;cd demo-slide 資料夾&#xa;執行 pnpm dev" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="870" y="510" width="270" height="65" as="geometry"/>
+    </mxCell>
+    <!-- No (not first time) -> step1 -->
+    <mxCell id="e_no" value="否" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" source="firstTime" target="m2_step1" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <!-- Setup done -> step1 -->
+    <mxCell id="e_setup_done" style="edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="s6" target="m2_step1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1190" y="817"/>
+          <mxPoint x="1190" y="542"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <mxCell id="m2_step2" value="第三步：在瀏覽器中修改&#xa;打開 http://localhost:5173&#xa;用 Inspect 面板點選元素修改&#xa;或用 Design 面板調整整體風格" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="870" y="620" width="270" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_m2_step2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m2_step1" target="m2_step2" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="m2_save" value="按 Save 儲存修改" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="870" y="745" width="270" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_m2_save" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m2_step2" target="m2_save" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="m2_push" value="第四步：發布到網路&#xa;開第二個 PowerShell 視窗輸入：&#xa;git add .&#xa;git commit -m &quot;修改簡報內容&quot;&#xa;git push" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="870" y="835" width="270" height="85" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_m2_push" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m2_save" target="m2_push" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== SHARED BOTTOM ===== -->
+    <mxCell id="vercel" value="Vercel 自動偵測 GitHub 更新&#xa;重新部署網站（自動）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="430" y="640" width="300" height="60" as="geometry"/>
+    </mxCell>
+
+    <!-- Method 1 -> Vercel -->
+    <mxCell id="e_m1_vercel" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" source="m1_claude" target="vercel" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <!-- Method 2 -> Vercel -->
+    <mxCell id="e_m2_vercel" style="edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="m2_push" target="vercel" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="840" y="877"/>
+          <mxPoint x="840" y="670"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <mxCell id="wait" value="等待 1–2 分鐘" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="480" y="750" width="200" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_vercel_wait" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="vercel" target="wait" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="viewUrl" value="前往網址查看更新後的簡報&#xa;https://niku0000.vercel.app/s/tipc-intro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="430" y="850" width="300" height="55" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_wait_url" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="wait" target="viewUrl" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="checkVercel" value="（可選）到 Vercel 網站確認部署成功&#xa;Vercel 會寄通知信到綁定信箱" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;dashed=1;" vertex="1" parent="1">
+      <mxGeometry x="430" y="955" width="300" height="55" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_url_check" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="viewUrl" target="checkVercel" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="end" value="完成！" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="530" y="1060" width="140" height="55" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_end" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="checkVercel" target="end" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- Legend -->
+    <mxCell id="legend_title" value="圖例" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="40" y="700" width="80" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="leg1" value="開始 / 結束" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="40" y="730" width="110" height="35" as="geometry"/>
+    </mxCell>
+    <mxCell id="leg2" value="流程步驟" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="40" y="778" width="110" height="35" as="geometry"/>
+    </mxCell>
+    <mxCell id="leg3" value="判斷 / 決策" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="40" y="826" width="110" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="leg4" value="一次性安裝" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="40" y="879" width="110" height="35" as="geometry"/>
+    </mxCell>
+    <mxCell id="leg5" value="方式二步驟" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="40" y="927" width="110" height="35" as="geometry"/>
+    </mxCell>
+
+  </root>
+</mxGraphModel>
